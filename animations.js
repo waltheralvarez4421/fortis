@@ -312,7 +312,7 @@ gsap.registerPlugin(ScrollTrigger);
       tl.fromTo(
         textElement,
         {
-          top: "7.68vw",
+          top: "35.68vw",
           scale:1,
         },
         {
