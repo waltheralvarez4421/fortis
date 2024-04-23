@@ -270,7 +270,7 @@ gsap.registerPlugin(ScrollTrigger);
         let tl = gsap.timeline({ duration: 0.3, ease: "power3.inOut", delay: 1 });
         tl.fromTo($(this).find(".char"), {
           yPercent: -120,
-          stagger: { amount: 0.7 },
+          stagger: 0.7 ,
         },
         {
           yPercent: 0,
