@@ -173,10 +173,27 @@ gsap.registerPlugin(ScrollTrigger);
             timeline.pause();
           },
         });
-        // Play tl when scrolled into view (60% from bottom of screen)
+        // Play tl when scrolled into view (60% from top of screen)
         ScrollTrigger.create({
           trigger: triggerElement,
-          start: "bottom 60%",
+          start: "top bottom",
+          onEnter: () => timeline.play(),
+        });
+      }
+
+      function createScrollTriggerInstantLoad(triggerElement, timeline) {
+        ScrollTrigger.create({
+          trigger: triggerElement,
+          start: "top 25%",
+          onLeaveBack: () => {
+            timeline.progress(0);
+            timeline.pause();
+          },
+        });
+        // Play tl when scrolled into view (60% from top of screen)
+        ScrollTrigger.create({
+          trigger: triggerElement,
+          start: "bottom top",
           onEnter: () => timeline.play(),
         });
       }
@@ -264,6 +281,16 @@ gsap.registerPlugin(ScrollTrigger);
           stagger: { amount: 0.7 },
         });
         createScrollTriggerInstant($(this), tl);
+      });
+      $("[letters-slide-down-instant-on-load]").each(function (index) {
+        let tl = gsap.timeline({ paused: true });
+        tl.from($(this).find(".char"), {
+          yPercent: -120,
+          duration: 0.3,
+          ease: "power1.out",
+          stagger: { amount: 0.7 },
+        });
+        createScrollTriggerInstantLoad($(this), tl);
       });
 
       $("[letters-fade-in]").each(function (index) {
