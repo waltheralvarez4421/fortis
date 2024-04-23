@@ -176,7 +176,7 @@ gsap.registerPlugin(ScrollTrigger);
         // Play tl when scrolled into view (60% from bottom of screen)
         ScrollTrigger.create({
           trigger: triggerElement,
-          start: "bottom 60%,
+          start: "bottom 60%",
           onEnter: () => timeline.play(),
         });
       }
