@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
     // Card hover animation
     $(".card").on("mouseenter", function () {
-      let tl = gsap.timeline({});
+      let tl = gsap.timeline({}); 
       const bgColor = $(this).css("background-color");
 
       if ($(this).hasClass("shorter")) {
@@ -181,23 +181,6 @@ gsap.registerPlugin(ScrollTrigger);
         });
       }
 
-      function createScrollTriggerInstantLoad(triggerElement, timeline) {
-        ScrollTrigger.create({
-          trigger: triggerElement,
-          start: "bottom top",
-          onLeaveBack: () => {
-            timeline.progress(0);
-            timeline.pause();
-          },
-        });
-        // Play tl when scrolled into view (60% from top of screen)
-        ScrollTrigger.create({
-          trigger: triggerElement,
-          start: "bottom 20%",
-          onEnter: () => timeline.play(),
-        });
-      }
-
       $(".in-left").each(function (index) {
         let tl = gsap.timeline({ paused: true });
         tl.from($(this), {
@@ -282,15 +265,16 @@ gsap.registerPlugin(ScrollTrigger);
         });
         createScrollTriggerInstant($(this), tl);
       });
+
       $("[letters-slide-down-instant-on-load]").each(function (index) {
-        let tl = gsap.timeline({ paused: true });
-        tl.from($(this).find(".char"), {
+        let tl = gsap.timeline({ duration: 0.3, ease: "power3.inOut", delay: 1 });
+        tl.fromTo($(this).find(".char"), {
           yPercent: -120,
-          duration: 0.3,
-          ease: "power1.out",
           stagger: { amount: 0.7 },
+        },
+        {
+          yPercent: 0,
         });
-        createScrollTriggerInstantLoad($(this), tl);
       });
 
       $("[letters-fade-in]").each(function (index) {
