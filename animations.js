@@ -184,7 +184,7 @@ gsap.registerPlugin(ScrollTrigger);
       function createScrollTriggerInstantLoad(triggerElement, timeline) {
         ScrollTrigger.create({
           trigger: triggerElement,
-          start: "top 25%",
+          start: "bottom top",
           onLeaveBack: () => {
             timeline.progress(0);
             timeline.pause();
@@ -193,7 +193,7 @@ gsap.registerPlugin(ScrollTrigger);
         // Play tl when scrolled into view (60% from top of screen)
         ScrollTrigger.create({
           trigger: triggerElement,
-          start: "bottom top",
+          start: "bottom bottom",
           onEnter: () => timeline.play(),
         });
       }
