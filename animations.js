@@ -290,14 +290,18 @@ gsap.registerPlugin(ScrollTrigger);
       let textElement = $(".hp-hero__text");
       var logoTop = 0;
       var textTop = 0;
+      var ww = window.innerWidth;
 
-      if (window.innerWidth > 991) {
+      if (ww > 991) {
         logoTop = "16.68vw";
         textTop = "35.68vw";
-      } else if (window.innerWidth <= 991) {
+      } else if ( (ww <= 991) && (ww >= 769) ) {
         logoTop = "16.68vw";
         textTop = "40.68vw";
-      } else if (window.innerWidth <= 497) {
+      } else if ( (ww <= 768) && (ww >= 498) ) {
+        logoTop = "26.68vw";
+        textTop = "50.68vw";
+      } else if (ww <= 497) {
         logoTop = "56.68vw";
         textTop = '85.68vw';
       }
