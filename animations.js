@@ -302,7 +302,7 @@ gsap.registerPlugin(ScrollTrigger);
         targetElement,
         {
           width: "79.37em",
-          top: "16.68em",
+          top: "16.68vw",
         },
         {
           width: "9.63em",
@@ -312,7 +312,7 @@ gsap.registerPlugin(ScrollTrigger);
       tl.fromTo(
         textElement,
         {
-          top: "7.68em",
+          top: "7.68vw",
           scale:1,
         },
         {
