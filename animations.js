@@ -288,6 +288,20 @@ gsap.registerPlugin(ScrollTrigger);
       let fillLogo = $(".homepage-logo__fill");
       let outlineLogo = $(".homepage-logo__transparent");
       let textElement = $(".hp-hero__text");
+      var logoTop = 0;
+      var textTop = 0;
+
+      if (window.innerWidth > 991) {
+        logoTop = "16.68vw";
+        textTop = "35.68vw";
+      } else if (window.innerWidth <= 991) {
+        logoTop = "16.68vw";
+        textTop = "40.68vw";
+      } else if (window.innerWidth <= 497) {
+        logoTop = "56.68vw";
+        textTop = '85.68vw';
+      }
+
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: triggerElement,
@@ -302,7 +316,7 @@ gsap.registerPlugin(ScrollTrigger);
         targetElement,
         {
           width: "79.37em",
-          top: "16.68vw",
+          top: logoTop,
         },
         {
           width: "9.63em",
@@ -312,7 +326,7 @@ gsap.registerPlugin(ScrollTrigger);
       tl.fromTo(
         textElement,
         {
-          top: "35.68vw",
+          top: textTop,
           scale:1,
         },
         {
