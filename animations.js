@@ -126,6 +126,21 @@ gsap.registerPlugin(ScrollTrigger);
         tagName: "span",
       });
 
+      function dropText() { 
+        $("[letters-slide-down-instant-on-load]").each(function (index) {
+          let tl = gsap.timeline({ duration: 0.3, ease: "power3.inOut", delay: 1 });
+          tl.fromTo($(this).find(".char"), {
+            yPercent: -120,
+            stagger: 0.7 ,
+          },
+          {
+            yPercent: 0,
+          });
+        });
+      }
+
+      dropText();
+
       // Link timelines to scroll position
       function createScrollTrigger(triggerElement, timeline) {
         // Reset tl when scroll out of view past bottom of screen
@@ -264,17 +279,6 @@ gsap.registerPlugin(ScrollTrigger);
           stagger: { amount: 0.7 },
         });
         createScrollTriggerInstant($(this), tl);
-      });
-
-      $("[letters-slide-down-instant-on-load]").each(function (index) {
-        let tl = gsap.timeline({ duration: 0.3, ease: "power3.inOut", delay: 1 });
-        tl.fromTo($(this).find(".char"), {
-          yPercent: -120,
-          stagger: 0.7 ,
-        },
-        {
-          yPercent: 0,
-        });
       });
 
       $("[letters-fade-in]").each(function (index) {
