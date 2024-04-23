@@ -173,10 +173,10 @@ gsap.registerPlugin(ScrollTrigger);
             timeline.pause();
           },
         });
-        // Play tl when scrolled into view (60% from top of screen)
+        // Play tl when scrolled into view (60% from bottom of screen)
         ScrollTrigger.create({
           trigger: triggerElement,
-          start: "top bottom",
+          start: "bottom 60%,
           onEnter: () => timeline.play(),
         });
       }
