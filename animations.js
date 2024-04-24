@@ -3,7 +3,6 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.defaults({
   markers: false,
 });
-
 // Card hover animation
 $(".card").on("mouseenter", function () {
   let tl = gsap.timeline({});
